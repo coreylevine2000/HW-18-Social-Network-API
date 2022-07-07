@@ -1,8 +1,8 @@
 {
     "name": "HW-18-Social-Network-API",
-    "version": "1",
+    "version": "1.0.1",
     "description": "Mongoose back-end project - Main",
-    "main": "server.js",
+    "main": "index.js",
     "license": "MIT",
     "scripts": {
       "start": "node index",
@@ -18,3 +18,4 @@
       "nodemon": "^2.0.9"
     }
   }
+  
