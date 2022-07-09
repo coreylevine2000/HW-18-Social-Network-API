@@ -9,3 +9,5 @@
 // });
 
 // module.exports = connection;
+
+//Residual Data from original code, migrated into main index.js

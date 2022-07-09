@@ -123,6 +123,8 @@ const { User, Thought } = require('../models');
 //   },
 // };
 
+//Residual Data from original code
+
 const userControllers = {
   getAllUsers(req, res) {
       User.find({})

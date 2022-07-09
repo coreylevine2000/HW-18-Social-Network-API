@@ -24,6 +24,8 @@ const {
 //   .delete(deleteThought);
 
 // module.exports = router;
+//Residual Data from original code
+
 router
     .route('/')
     .get(getAllThoughts);

@@ -32,3 +32,5 @@
 // const Reaction = model('Reaction', reactionSchema);
 
 // module.exports = Reaction;
+
+//Residual Data from original code, migrated into Thought.js

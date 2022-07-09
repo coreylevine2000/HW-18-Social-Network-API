@@ -54,6 +54,8 @@ const { Thought, User } = require('../models');
 //   },
 // };
 
+//Residual Data from original code
+
 const ThoughtControllers = {
   getAllThoughts(req, res) {
       Thought.find({})
