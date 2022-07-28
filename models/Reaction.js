@@ -1,36 +1,44 @@
-// const { Schema, Types } = require('mongoose');
-// const dateFormat = require('../utils/dateFormat');
+const { Schema, Types } = require('mongoose');
+const ObjectId = require("mongodb").ObjectId;
 
-// const reactionSchema = new Schema(
-//   {
-//     reactionId: {
-//       type: Schema.Types.ObjectId,
-//       default: () => new Types.ObjectId(),
-//     },
-//     reactionBody: {
-//       type: String,
-//       required: true,
-//       maxlength: 280,
-//     },
-//     username: {
-//       type: Number,
-//       required: true,
-//     },
-//     createdAt: {
-//       type: Date,
-//       default: Date.now,
-//       get: createdAtVal => dateFormat(createdAtVal),
-//     },
-//   },
-//   {
-//     toJSON: {
-//       getters: true,
-//     },
-//   }
-// );
+const reactionSchema = new Schema(
+  {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    reactionBody: {
+      type: String,
+      required: true,
+      maxlength: 280,
+    },
+    username: {
+      type: Number,
+      required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now(),
+        get: formatDate,
+      },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+  }
+);
 
-// const Reaction = model('Reaction', reactionSchema);
 
-// module.exports = Reaction;
+function formatDate(date) {
+    const stringDate = date.toLocaleString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+    return stringDate;
+  }
+  
+const Reaction = model('Reaction', reactionSchema);
 
-//Residual Data from original code, migrated into Thought.js
+module.exports = Reaction;
