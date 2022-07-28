@@ -39,6 +39,4 @@ function formatDate(date) {
     return stringDate;
   }
   
-const Reaction = model('Reaction', reactionSchema);
-
-module.exports = Reaction;
+module.exports = reactionSchema;
