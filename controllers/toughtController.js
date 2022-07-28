@@ -83,4 +83,19 @@ getThoughts(req, res) {
             return res.status(500).json(err);
           });
       },
+    async deleteReaction(req, res) {
+    try {
+        const thought = await Thought.findOneAndUpdate(
+        { _id: ObjectId(req.params.thoughtId) },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { new: true }
+        );
+        if (!thought) {
+        res.status(404).json({ message: "No thought with that ID" });
+        }
+        res.json(thought);
+    } catch (e) {
+        res.status(500).json(e);
+    }
+    },
 };
