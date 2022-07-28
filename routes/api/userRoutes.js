@@ -1,46 +1,46 @@
 const router = require('express').Router();
 const {
-  // getUsers,
-  // getSingleUser,
-  createUser,
-  deleteUser,
-  // addReaction,
-  // removeReaction,
-  updateUser,
-  getAllUsers,
-  getUserById,
-  addFriend,
-  removeFriend,
-} = require('../../controllers/userController');
-// // /api/users
-// router.route('/').get(getUsers).post(createUser);
+    getUsers,
+    createUser,
+    getSingleUser,
+    deleteSingleUser,
+    updateSingleUser,
+    createFriend,
+    deleteFriend,
+  } = require("../../controllers/userController");
+  
+// /api/users
+router.route("/").get(getUsers).post(createUser);
 
-// // /api/users/:userId
-// router.route('/:userId').get(getSingleUser).delete(deleteUser);
-
-// // /api/users/:userId/reactions
-// router.route('/:userId/reactions').post(addReaction);
-
-// // /api/users/:userId/reactions/:reactionsId
-// router.route('/:userId/reactions/:reactionId').delete(removeReaction);
-
-// module.exports = router;
-//Residual Data from original code
-
+// /api/users/:userId
 router
-    .route('/')
-    .get(getAllUsers)
-    .post(createUser);
+  .route("/:userId")
+  .get(getSingleUser)
+  .delete(deleteSingleUser)
+  .put(updateSingleUser);
 
+// /api/users/:userId/friends/:friendId
 router
-    .route('/:id')
-    .get(getUserById)
-    .delete(deleteUser)
-    .put(updateUser);
-router
-    .route("/:id/friends/:friendId")
-    .post(addFriend)
-    .delete(removeFriend);
+  .route("/:userId/friends/:friendId")
+  .post(createFriend)
+  .delete(deleteFriend);
+
+module.exports = router;
+
+// router
+//     .route('/')
+//     .get(getAllUsers)
+//     .post(createUser);
+
+// router
+//     .route('/:id')
+//     .get(getUserById)
+//     .delete(deleteUser)
+//     .put(updateUser);
+// router
+//     .route("/:id/friends/:friendId")
+//     .post(addFriend)
+//     .delete(removeFriend);
 
 
 module.exports = router;
